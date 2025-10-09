@@ -37,11 +37,7 @@
       });
       const checkwinner = () => {
         for (let pattern of winpattern) {
-          //   console.log(
-          //     btn[pattern[0]].innerText,
-          //     btn[pattern[1]].innerText,
-          //     btn[pattern[2]].innerText
-          //   );
+        
           let val1 = btn[pattern[0]].innerText;
           let val2 = btn[pattern[1]].innerText;
           let val3 = btn[pattern[2]].innerText;
@@ -54,8 +50,10 @@
                     val1 = plyer2;}
               showWinner(val1);
               
+              
             }
           }
+          
         }
         btn.forEach((element) => {
           if (element.innerHTML != "") {
@@ -77,6 +75,11 @@
             element.disabled= true;
         });
       }
+         const enabled = ()=>{
+     btn.forEach(element => {
+            element.disabled= false;
+        });
+      }
       const showWinner = (winner) => {
         msgtext.innerText = `The winner is ${winner}`;
         disabled();
@@ -88,11 +91,14 @@
           element.innerHTML = "";
         });
         msg.classList.add("hide");
+        enabled();
       });
       newbtn.addEventListener("click", () => {
         btn.forEach((element) => {
           element.innerHTML = "";
         });
         msg.classList.add("hide");
+        enabled();
+        
       });
       
